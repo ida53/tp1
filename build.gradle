@@ -1,0 +1,20 @@
+apply plugin : 'java'
+apply plugin : 'eclipse'
+apply plugin : 'idea'
+
+// Le repertoire pour aller chercher le joda-time
+repositories {
+	jcenter()
+	mavenCentral()
+	/**maven{
+		url "https://plugins.gradle.org/m2/"
+		name 'Gragle'
+	}*/
+}
+
+// joda-time pour la gestion des datetime et junit
+// On fait ensuite "gradlew.bat eclipe" en ligne de commande pour l'intéger dans le projet
+dependencies {
+	compile 'joda-time:joda-time:2.10'
+	testCompile("junit:junit:4.12")
+}
