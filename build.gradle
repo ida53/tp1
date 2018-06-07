@@ -4,6 +4,7 @@ apply plugin : 'pmd'
 apply plugin : 'findbugs'
 apply plugin : 'checkstyle'
 apply plugin : 'jacoco'
+apply plugin : 'jdepend'
 
 // Le repertoire pour aller chercher le joda-time
 repositories {
@@ -14,6 +15,12 @@ repositories {
 		name 'Gragle'
 	}*/
 }
+
+def gradleExtra="${project.rootDir}/gradle/script"
+def reportDir="${project.buildDir}/reports"
+
+check.dependsOn 'cpd'
+
 
 // joda-time pour la gestion des datetime et junit
 // On fait ensuite "gradlew.bat eclipe" en ligne de commande pour l'intéger dans
@@ -92,7 +99,7 @@ tasks.withType(Checkstyle){
 // CPD
 task cpd {
     doLast {
-        def cpdOutputDir = new File("build/reports/jacoco/cpd")
+        def cpdOutputDir = new File("${reportDir}/cpd")
         cpdOutputDir.mkdirs()
 
         ant.taskdef(name: 'cpd', classname: 'net.sourceforge.pmd.cpd.CPDTask', classpath: configurations.pmd.asPath)
@@ -108,13 +115,25 @@ task cpd {
 // Jacoco
 jacoco {
     toolVersion = "0.8.1"
-    reportsDir = file("build/reports/jacoco")
 }
 
 jacocoTestReport {
     reports {
         xml.enabled false
-        csv.enabled false
-        html.destination file("build/reports/jacoco/jacoco.html")
+        csv.enabled false        
+    }
+}
+
+// JDepend
+jdepend {
+    jdependTest.enabled = false
+//   toolVersion = "2.9.1"
+    ignoreFailures = true
+}
+
+tasks.withType(JDepend) {
+    reports {
+        xml.enabled true
+        text.enabled false
     }
 }
