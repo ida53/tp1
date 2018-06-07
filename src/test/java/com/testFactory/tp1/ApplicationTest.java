@@ -7,8 +7,8 @@ public class ApplicationTest {
 
 	@Test
 	public void test() {
-		int i=2, j=3;
-		int k = Application.add(i, j);
+		final int i=2, j=3;
+		final int k = Application.add(i, j);
 		
 		Assert.assertEquals("Erreur ", k, 5);
 	}
