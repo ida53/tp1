@@ -1,6 +1,5 @@
 apply plugin : 'java'
 apply plugin : 'eclipse'
-apply plugin : 'idea'
 
 // Le repertoire pour aller chercher le joda-time
 repositories {

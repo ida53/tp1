@@ -1,7 +1,7 @@
 package com.testFactory.tp1;
 import org.joda.time.DateTime;
 
-public class test{
+public class Application{
 	
 	public static void main(String[] args){
 		
