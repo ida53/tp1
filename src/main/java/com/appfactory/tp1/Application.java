@@ -30,8 +30,8 @@ public final class Application{
 
 	/***
 	 * Add two values.
-	 * @param i first value.
-	 * @param j second value.
+	 * @param iii first value.
+	 * @param jjj second value.
 	 * @return result of addition.
 	 */
 	public static int add(final int iii, final int jjj) {
