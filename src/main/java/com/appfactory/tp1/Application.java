@@ -1,6 +1,6 @@
 
 
-package com.testFactory.tp1;
+package com.appfactory.tp1;
 import org.joda.time.DateTime;
 
 /**
@@ -11,13 +11,13 @@ import org.joda.time.DateTime;
 public class Application{
 	
 	/** State of application. (true if running). */
-	private static boolean isRunning = false;
+	public static boolean isRunning = false;
 	
 	/***
 	 * Entry point of application.
 	 * @param args Argument from CLI.
 	 */
-	public static void main(String[] args){
+	public static void main(final String[] args){
 		
 		
 		final DateTime date = DateTime.now();
@@ -32,8 +32,8 @@ public class Application{
 	 * @param j second value.
 	 * @return result of addition.
 	 */
-	public static int add(int i, int j) {
+	public static int add(final int iii, final int jjj) {
 		// TODO Auto-generated method stub
-		return i+j;
+		return iii+jjj;
 	}
 }

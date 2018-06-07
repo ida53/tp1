@@ -1,7 +1,9 @@
-package com.testFactory.tp1;
+package com.appfactory.tp1;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import com.appfactory.tp1.Application;
 
 public class ApplicationTest {
 
