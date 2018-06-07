@@ -5,8 +5,8 @@ import org.junit.Test;
 
 import com.appfactory.tp1.Application;
 
-public class ApplicationTest {
-
+public class ApplicationTest {	
+	
 	@Test
 	public void test() {
 		final int i=2, j=3;

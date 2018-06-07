@@ -8,10 +8,12 @@ import org.joda.time.DateTime;
  * @author Ida
  * 
  */
-public class Application{
+public final class Application{
 	
-	/** State of application. (true if running). */
-	public static boolean isRunning = false;
+	private Application()
+	{
+		super();
+	}
 	
 	/***
 	 * Entry point of application.
