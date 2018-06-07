@@ -2,6 +2,7 @@ apply plugin : 'java'
 apply plugin : 'eclipse'
 
 apply plugin : 'pmd'
+apply plugin : 'findbugs'
 
 // Le repertoire pour aller chercher le joda-time
 repositories {
@@ -14,7 +15,8 @@ repositories {
 }
 
 // joda-time pour la gestion des datetime et junit
-// On fait ensuite "gradlew.bat eclipe" en ligne de commande pour l'intéger dans le projet
+// On fait ensuite "gradlew.bat eclipe" en ligne de commande pour l'intéger dans
+// le projet
 dependencies {
 	compile 'joda-time:joda-time:2.10'
 	testCompile("junit:junit:4.12")
@@ -37,11 +39,32 @@ pmd{
                 "java-optimizations",
                 "java-strings",
                 "java-unusedcode"]
+                
+                ignoreFailures = true
+                
 }
 
 tasks.withType(Pmd){
     reports{
         xml.enabled true
         html.enabled true
+    }
+}
+
+test {
+    ignoreFailures = true
+}
+
+findbugs{
+    findbugsTest.enabled = false
+    ignoreFailures = true
+                
+}
+
+tasks.withType(FindBugs){
+    reports{
+        xml.enabled true
+        html.enabled false
+    
     }
 }
