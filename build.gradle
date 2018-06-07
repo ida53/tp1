@@ -1,8 +1,8 @@
 apply plugin : 'java'
 apply plugin : 'eclipse'
-
 apply plugin : 'pmd'
 apply plugin : 'findbugs'
+apply plugin : 'checkstyle'
 
 // Le repertoire pour aller chercher le joda-time
 repositories {
@@ -66,5 +66,20 @@ tasks.withType(FindBugs){
         xml.enabled true
         html.enabled false
     
+    }
+}
+
+checkstyle{    
+    toolVersion = '8.10.1'
+    ignoreFailures = true
+    configFile rootProject.file('config/checkstyle/checkstyle.xml')
+                
+}
+
+tasks.withType(Checkstyle){
+    reports{
+        xml.enabled false
+        html.enabled true
+        
     }
 }
